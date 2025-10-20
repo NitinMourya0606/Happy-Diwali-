@@ -1,193 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Diwali</title>
-    <style>
-        /* Main background setup */
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background: radial-gradient(circle, #1a1a1a, #000000);
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Diwali — Aesthetic Card</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #fff6f0 0%, #ffe7da 100%);
+      font-family: "Playfair Display", serif;
+      color: #3e2c20;
+    }
 
-        /* Container styling */
-        .container {
-            text-align: center;
-            color: #ffd700;
-            padding: 30px;
-            max-width: 80%;
-            position: relative;
-        }
+    .card {
+      background: #fffaf6;
+      border: 2px solid #f9dcc4;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(255, 190, 150, 0.25);
+      text-align: center;
+      padding: 60px 40px;
+      max-width: 420px;
+    }
 
-        /* Shimmer effect for the greeting text */
-        .shimmer-text {
-            font-size: 3.5em;
-            font-weight: bold;
-            color: transparent;
-            background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
-            background-size: 200%;
-            -webkit-background-clip: text;
-            animation: shimmer 4s infinite linear;
-        }
+    .diya {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
 
-        @keyframes shimmer {
-            0% { background-position: 0%; }
-            100% { background-position: 200%; }
-        }
+    .diya .flame {
+      width: 24px;
+      height: 36px;
+      background: radial-gradient(circle at 50% 30%, #ffd26f 0%, #ffad33 60%, #ff8c00 100%);
+      border-radius: 50% 50% 50% 50%;
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-        p {
-            font-size: 1.2em;
-            color: #ffebcd;
-            margin-top: 10px;
-        }
+    .diya .bowl {
+      width: 80px;
+      height: 40px;
+      background: linear-gradient(180deg, #ffcc99 0%, #d47b39 100%);
+      border-radius: 0 0 40px 40px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
 
-        /* Button styling */
-        .celebrate-button {
-            padding: 12px 24px;
-            font-size: 1.2em;
-            color: #ffd700;
-            background: #333;
-            border: 2px solid #ff4500;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 0 10px #ff4500;
-            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-        }
+    h1 {
+      font-size: 2rem;
+      margin: 10px 0;
+      color: #b85c38;
+      letter-spacing: 1px;
+    }
 
-        .celebrate-button:hover {
-            background: #555;
-            transform: scale(1.1);
-        }
+    p {
+      font-size: 1rem;
+      margin-top: 8px;
+      color: #6b4e3d;
+      line-height: 1.6;
+    }
 
-        /* Fireworks animation */
-        .firework {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: #ff4500;
-            border-radius: 50%;
-            animation: firework 2s infinite ease-in-out;
-            opacity: 0;
-        }
-
-        @keyframes firework {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            50% { transform: translateY(-300px) scale(2); opacity: 0.7; }
-            100% { transform: translateY(0) scale(1); opacity: 0; }
-        }
-
-        /* Single diya with flame effect */
-        .diya-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .diya {
-            position: relative;
-            width: 40px;
-            height: 40px;
-            background: #ff8c00;
-            border-radius: 50% 50% 0 0;
-            transform: rotate(180deg);
-        }
-
-        .diya:before {
-            content: "";
-            position: absolute;
-            top: -35px;
-            left: 50%;
-            width: 20px;
-            height: 30px;
-            background: radial-gradient(circle, #ff4500, #ff6347);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            animation: flicker 1.5s infinite alternate;
-        }
-
-        @keyframes flicker {
-            0% { transform: scale(1) translateX(-50%); opacity: 0.9; }
-            100% { transform: scale(1.1) translateX(-50%); opacity: 1; }
-        }
-    </style>
+    .divider {
+      width: 50px;
+      height: 2px;
+      background-color: #b85c38;
+      margin: 20px auto;
+      border-radius: 1px;
+    }
+  </style>
 </head>
 <body>
-
-    <!-- Main container -->
-    <div class="container">
-        <h1 class="shimmer-text">Happy Diwali!</h1>
-        <p>May this festival of lights bring happiness, health, and wealth to you and your family!</p>
-        
-        <!-- Button to start fireworks and sound -->
-        <button class="celebrate-button" onclick="startFireworks()">Celebrate Diwali</button>
-
-        <!-- Single diya with flickering flame -->
-        <div class="diya-container">
-            <div class="diya"></div>
-        </div>
+  <div class="card">
+    <div class="diya">
+      <div class="flame"></div>
+      <div class="bowl"></div>
     </div>
-
-    <!-- Fireworks on button click -->
-    <div id="firework-container"></div>
-
-    <!-- Audio for Diwali sound effect -->
-    <audio id="diwaliSound" src="path/to/your/soundfile.mp3"></audio>
-
-    <script>
-        // Function to play sound and create fireworks
-        function startFireworks() {
-            document.getElementById("diwaliSound").play();
-            for (let i = 0; i < 5; i++) {  // Create multiple fireworks
-                createFirework();
-            }
-        }
-
-        function createFirework() {
-            const firework = document.createElement("div");
-            firework.classList.add("firework");
-            document.getElementById("firework-container").appendChild(firework);
-
-            // Position the firework at a random place within the container
-            firework.style.top = Math.random() * 80 + "%";
-            firework.style.left = Math.random() * 80 + "%";
-            firework.style.animationDuration = (Math.random() * 1 + 1) + "s";
-
-            // Remove the firework after animation completes
-            setTimeout(() => {
-                firework.remove();
-            }, 2000);
-        }
-    </script>
-
-</body>
-</html>        // Function to start fireworks and play sound
-        function startFireworks() {
-            const sound = document.getElementById("diwaliSound");
-            if (sound) sound.play();
-
-            for (let i = 0; i < 8; i++) createFirework();
-        }
-
-        function createFirework() {
-            const firework = document.createElement("div");
-            firework.classList.add("firework");
-            document.getElementById("firework-container").appendChild(firework);
-
-            firework.style.left = Math.random() * 100 + "%";
-            firework.style.top = Math.random() * 60 + "%";
-            firework.style.animationDuration = (Math.random() * 1.5 + 1) + "s";
-
-            setTimeout(() => firework.remove(), 2000);
-        }
-    </script>
-
+    <h1>Happy Diwali</h1>
+    <div class="divider"></div>
+    <p>Wishing you peace, prosperity, and the gentle glow of happiness this Diwali.</p>
+  </div>
 </body>
 </html>
