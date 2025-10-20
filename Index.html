@@ -1,91 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Diwali — Aesthetic Card</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(180deg, #fff6f0 0%, #ffe7da 100%);
-      font-family: "Playfair Display", serif;
-      color: #3e2c20;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Diwali</title>
+    <style>
+        /* ======= GLOBAL STYLING ======= */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle at center, #1a1a1a, #000);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            touch-action: none;
+        }
 
-    .card {
-      background: #fffaf6;
-      border: 2px solid #f9dcc4;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(255, 190, 150, 0.25);
-      text-align: center;
-      padding: 60px 40px;
-      max-width: 420px;
-    }
+        .container {
+            text-align: center;
+            color: #ffd700;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
 
-    .diya {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
-      position: relative;
-    }
+        /* ======= SHIMMER TEXT ======= */
+        .shimmer-text {
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: shimmer 3s infinite linear;
+        }
 
-    .diya .flame {
-      width: 24px;
-      height: 36px;
-      background: radial-gradient(circle at 50% 30%, #ffd26f 0%, #ffad33 60%, #ff8c00 100%);
-      border-radius: 50% 50% 50% 50%;
-      position: absolute;
-      top: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+        @keyframes shimmer {
+            0% { background-position: 0%; }
+            100% { background-position: 200%; }
+        }
 
-    .diya .bowl {
-      width: 80px;
-      height: 40px;
-      background: linear-gradient(180deg, #ffcc99 0%, #d47b39 100%);
-      border-radius: 0 0 40px 40px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+        /* ======= SUBTEXT ======= */
+        p {
+            font-size: 1em;
+            color: #ffebcd;
+            margin-top: 10px;
+        }
 
-    h1 {
-      font-size: 2rem;
-      margin: 10px 0;
-      color: #b85c38;
-      letter-spacing: 1px;
-    }
+        /* ======= BUTTON ======= */
+        .celebrate-button {
+            margin-top: 20px;
+            padding: 12px 28px;
+            font-size: 1em;
+            color: #ffd700;
+            background: #222;
+            border: 2px solid #ff8c00;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #ff8c00;
+        }
 
-    p {
-      font-size: 1rem;
-      margin-top: 8px;
-      color: #6b4e3d;
-      line-height: 1.6;
-    }
+        .celebrate-button:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
 
-    .divider {
-      width: 50px;
-      height: 2px;
-      background-color: #b85c38;
-      margin: 20px auto;
-      border-radius: 1px;
-    }
-  </style>
+        /* ======= DIYA ======= */
+        .diya-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .diya {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #ff8c00;
+            border-radius: 50px 50px 0 0;
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.6);
+        }
+
+        .flame {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 30px;
+            background: radial-gradient(circle, #ffdb58 0%, #ff4500 70%);
+            border-radius: 50% 50% 50% 50%;
+            animation: flicker 1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+            100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+        }
+
+        /* ======= FIREWORKS ======= */
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ff4500;
+            border-radius: 50%;
+            animation: firework 2s ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes firework {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-250px) scale(1.5); opacity: 0.8; }
+            100% { transform: translateY(0) scale(1); opacity: 0; }
+        }
+
+        /* ======= MOBILE FIX ======= */
+        @media (max-width: 480px) {
+            .shimmer-text { font-size: 2em; }
+            p { font-size: 0.9em; }
+            .celebrate-button { font-size: 0.9em; padding: 10px 22px; }
+            .diya { width: 50px; height: 25px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <div class="diya">
-      <div class="flame"></div>
-      <div class="bowl"></div>
+
+    <div class="container">
+        <h1 class="shimmer-text">✨ Happy Diwali ✨</h1>
+        <p>May your life be filled with light, joy, and prosperity!</p>
+        <button class="celebrate-button" onclick="startFireworks()">Celebrate 🎆</button>
+
+        <div class="diya-container">
+            <div class="diya">
+                <div class="flame"></div>
+            </div>
+        </div>
     </div>
-    <h1>Happy Diwali</h1>
-    <div class="divider"></div>
-    <p>Wishing you peace, prosperity, and the gentle glow of happiness this Diwali.</p>
-  </div>
+
+    <div id="firework-container"></div>
+
+    <!-- Optional Sound -->
+    <audio id="diwaliSound" src="path/to/your/soundfile.mp3"></audio>
+
+    <script>
+        // Function to start fireworks and play sound
+        function startFireworks() {
+            const sound = document.getElementById("diwaliSound");
+            if (sound) sound.play();
+
+            for (let i = 0; i < 8; i++) createFirework();
+        }
+
+        function createFirework() {
+            const firework = document.createElement("div");
+            firework.classList.add("firework");
+            document.getElementById("firework-container").appendChild(firework);
+
+            firework.style.left = Math.random() * 100 + "%";
+            firework.style.top = Math.random() * 60 + "%";
+            firework.style.animationDuration = (Math.random() * 1.5 + 1) + "s";
+
+            setTimeout(() => firework.remove(), 2000);
+        }
+    </script>
+
 </body>
 </html>
